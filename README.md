@@ -1,4 +1,9 @@
-# Getting Started with Create React App
+# Front-end 스터디
+첫 번째 공부 : Todo-list 만들기<br/>
+<br/>
+작업자 : 김태규, 이다은, 차민재
+
+# 아래는 yarn 명령어와 관련된 간단한 설명
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
