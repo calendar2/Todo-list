@@ -1,22 +1,26 @@
+import { useState } from 'react';
 import './App.css';
-import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import Header from './contents/Header';
-import Home from './contents/Home';
 import Nav from './contents/Nav';
 import Patrick from './contents/Patrick';
 
-function App() {
+function App(props) {
+  const [todos, setTodos] = useState([]);
+
+  // const onAddList = (title, contents) => {
+  //   const newTodo = {'title' : title, 'contents' : contents}
+  //   const newTodos = [...todos]
+  //   newTodos.push(newTodo)
+  //   setTodos(newTodos)
+  //   console.log(todos)
+  // }
+
   return (
     <div className="App">
-      <BrowserRouter>
-        <Header/>
-        <Nav/>
-
-        <Routes>
-          <Route path='/' element={<Home/>} />
-          <Route path='/patrick' element={<Patrick/>} />
-        </Routes>
-      </BrowserRouter>
+      <Header/>
+      <Nav setTodos={setTodos} />
+      <Patrick/>
+      <div>{todos}</div>
     </div>
   );
 }

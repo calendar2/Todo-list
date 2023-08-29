@@ -1,13 +1,36 @@
-import { Link } from 'react-router-dom';
+import React , { useState } from "react";
 
-function Nav() {
+function Nav(props) {
+  const [title, setTitle] = useState('');
+  const [contents, setContents] = useState('');
+
+  const onAdd = (e) => {
+    e.preventDefault();
+
+    if(title === '') {
+      alert('제목을 입력해주세요!');
+    }
+    else if(contents === '') {
+      alert('내용을 입력해주세요!');
+    }
+    else {
+      const newTodo = {'title' : title, 'contents' : contents};
+      const newTodos = [...props.todos]
+      newTodos.push(newTodo)
+      props.setTodos(newTodos);
+    }
+    
+    setTitle('');
+    setContents('');
+  }
+
   return (
     <nav>
-      <ul>
-        <li>
-          <Link to='/patrick'>민재의 todo</Link>
-        </li>
-      </ul>
+      Title
+      <input type='text' value={title} onChange={(e) => setTitle(e.target.value)} />
+      Contents
+      <input type='text' value={contents} onChange={(e) => setContents(e.target.value)} />
+      <button type="button" onClick={onAdd}>ADD</button>
     </nav>
   );
 }
